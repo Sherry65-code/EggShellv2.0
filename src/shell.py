@@ -14,7 +14,7 @@ from os import getcwd, name, system, chdir, makedirs, listdir, remove, removedir
 
 # All Variables <4>
 
-name="EggShellv2.0"
+names="EggShellv2.0"
 ver="1.0.0"
 maincolor="white"
 # End 4
@@ -50,6 +50,12 @@ def getOrignalString(start):
         pass
     return data
 
+def startfile(filename):
+    if (name == "nt"):
+        system(f"start {filename}")
+    else:
+        system(f"open {filename}")
+
 # End 5
 
 # Main <2>
@@ -59,7 +65,7 @@ else:
     system("clear")
 
 changeColorTo("green")
-print(f"{name} Version {ver}")
+print(f"{names} Version {ver}")
 while True:
     changeColorTo("yellow")
     print(f"{getcwd()}>>",end="")
@@ -139,6 +145,17 @@ while True:
                     fl.close()
             except Exception as e:
                 pass
+    elif (query[0] == "system"):
+        datar = getOrignalString(1)
+        system(f"{datar}")
+    elif (query[0] == "edit"):
+        if (name == "nt"):
+            system(f"notepad {getOrignalString(1)}")
+        else:
+            system(f"nano {getOrignalString(1)}")
+    elif (query[0] == "exec"):
+        datar = getOrignalString(1)
+        startfile(f"{datar}")
     else:
         print(f"'{query[0]}' is an unknown command")
 # End 2
