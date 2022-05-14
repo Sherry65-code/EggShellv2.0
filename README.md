@@ -11,4 +11,6 @@ No need
 
 **Setting Up Enviroment for using it**
 
-No `Dependencies` needed.
+*Dependencies -* 
+
+1. psutil `pip install psutil`
